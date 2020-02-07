@@ -1,0 +1,14 @@
+
+/**
+ * Grab post content and return formatted content
+ */
+function rem_get_post_content_render(){
+
+	global $post;
+	
+	if( isset($post) && !\Elementor\Plugin::$instance->preview->is_preview_mode() ){;
+		return apply_filters('the_content', $post->post_content);
+	}
+
+}
+add_shortcode( 'rem_get_post_content', 'rem_get_post_content_render');
